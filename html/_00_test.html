@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container{
+      width: 500px;
+      height: 500px;
+      margin: 0 auto;
+    }
+    .box{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: azure;
+      background-color: cornflowerblue;
+      border: 5px solid orangered;
+    }
+    #printDate{
+
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box">
+      <h1><span>우리가 지금까지 만난 시간은.....?</span></h1>
+      <h1><span id="printDate"></span><span>일 !!</span></h1>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+  <script>
+    let nowDate = new Date();
+    let AnniDate = new Date("2019-01-02");
+    // 밀리초로 환산
+    nowTime = nowDate.getTime();
+    AnniTime = AnniDate.getTime();
+    
+    calTime = nowTime - AnniTime;
+    // 시간을 일로 환산
+    calDate = Math.round(calTime/(24*60*60*1000))
+    alert(calDate);
+
+    const printDate = document.querySelector("#printDate").innerText=calDate;
+  </script>
+</body>
+</html>
