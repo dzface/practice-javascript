@@ -1,0 +1,12 @@
+let dDay = new Date("2024-08-30");
+console.log(dDay);    
+let now = new Date();   
+console.log(now);
+let nowToTime = now.getTime();       
+console.log(nowToTime);
+let dDayToTime = dDay.getTime();  
+console.log(dDayToTime);
+let remainTime = dDayToTime - nowToTime;
+console.log(remainTime);
+remainTimeToDate = Math.round(remainTime/(24*60*60*1000));
+console.log(remainTimeToDate);
