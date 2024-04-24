@@ -1,47 +1,59 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>학원 수료</title>
+  <title>수료일 계산기</title>
   <style>
-    #container{
-      margin:50px auto;
-      width:300px;
-      height:300px;
-      border-radius:50%;
-      border:2px double #222;
-      background-color:#d8f0fc;
+    .container {
+      width: 500px;
+      display: flex;
+      justify-items: center;
+      align-content: center;
       text-align: center;
+      margin: 0 auto;
     }
-    h1 {
-      margin-top:80px;
+    .circle-box {
+      width: 500px;
+      height: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-items: center;
+      align-content: center;
+      text-align: center;
+      border-radius: 50%;
+      border: 3px solid black;
+      background-color: darkcyan;
     }
-    .accent {
-      font-size:1.8em;
-      font-weight:bold;
-      color:red;
+    .circle-box h1, h3{
+      color: white;
+      margin-top: 10%;
     }
   </style>
 </head>
 <body>
-  <div id="container">
-    <h1>학원 수료</h1>
-    <p><span class="accent" id="result"></span>일 남았습니다. 힘내세요!!!!!</p>
-    <p>화이팅!</p>
-  </div>  
-
+  <div class="container">
+    <div class="circle-box">
+      <h3>남은 날짜는....?</h3>
+      <h1 ><span id="dDate"></span><span>일 남았습니다.</span></h1>
+    </div>
+  </div>
   <script>
-    let dDay = new Date("2024-08-30");       
-    let now = new Date();   
+    // 현재 날짜 객체 생성
+    let myDate = new Date();
+    // 수료일 날짜 객체 생성
+    let lastDate = new Date("2024-08-30");
 
-    let toNow = now.getTime();       
-    let toDay = dDay.getTime();  
-    let remainTime = toDay - toNow;  
+    // 현재 날짜 시간 환산
+    let myDateToTime = myDate.getTime();
+    // 수료일 날짜 시간 환산
+    let lastDateToTime = lastDate.getTime();
+    // 날짜 계산하여 남은 시간 계산
+    let remaintime = lastDateToTime - myDateToTime;
+    // 남은 날짜 시간을 일로 환산하여 출력
+    document.write(Math.round(remaintime/(24*60*60*1000)));
+    document.querySelector('#dDate').innerText = Math.round(remaintime/(24*60*60*1000));
 
-    remainTime = Math.round(remainTime/(1000*60*60*24));  // 밀리 초를 일 수로 계산하고 반올림
-
-    document.querySelector('#result').innerText = remainTime;
   </script>
 </body>
 </html>
