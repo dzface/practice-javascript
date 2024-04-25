@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>html, javascript 사용하기</title>
+  <style>
+    .container{
+      width: 600px;
+      height: 800px;
+      margin: 0 auto;
+
+    }
+    .box {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+    }
+    .box div{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5%;
+    }
+    .button{
+      width: 100px;
+      height: 30px;
+      border: 1px solid;
+      color: white;
+      margin: 10px;
+    }
+    .button:nth-child(1){
+      background-color: green;
+    }
+    .button:nth-child(2){
+      background-color: orange;
+    }
+    .button:nth-child(3){
+      background-color: purple;
+    }
+    #window{
+      width: 500px;
+      height: 500px;
+      border: 1px solid;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box">
+      <div>
+        <div class="button" id="greenBtn">Green</div>
+        <div class="button" id="orangeBtn">Orange</div>
+        <div class="button" id="purpleBtn">Purple</div>
+      </div>
+      <div id="window"></div>
+    </div>
+  </div>
+  <script>
+    let greenBtn = document.getElementById("greenBtn");
+    let orangeBtn = document.getElementById("greenBtn");
+    let purpleBtn = document.getElementById("greenBtn");
+    let changeWindow = document.getElementById("window")
+    greenBtn.addEventListener('click', ()=>changeWindow.style.backgroundColor="green");
+    orangeBtn.addEventListener('click', ()=>changeWindow.style.backgroundColor="orange");
+    purpleBtn.addEventListener('click', ()=>changeWindow.style.backgroundColor="Purple");
+    </script>
+</body>
+</html>

@@ -5,15 +5,58 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    .container {
+      width: 500px;
+      height: 700px;
+      margin: 0 auto;
+    }
+
+    .box {
+      width: 450px;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    ul li {
+      list-style: none;
+    }
+  </style>
 </head>
 
 <body>
-  <script>
-    let doc = document.firstChild; // <!DOCTYPE html> 반환
-    console.log(doc);
+  <div class="container">
+    <div class="box">
+      <h1>DOM 추가 삭제</h1>
+      <p>공부 할 과목을 기록해 보세요</p>
+      <p>공부가 끝난 과목은 클릭해서 삭제 할 수 있습니다.</p>
+      <input type="text" id="subject" autofocus>
+      <button id="newRegister">추가</button>
+      
 
-    let html = document.firstElementChild; // 첫번째 자식 노드 반환
-    console.log(html);
+    </div>
+  </div>
+  <script>
+    function newRegister(){
+      let newItem = document.createElement("li");
+      let subject = document.querySelector("#subject");
+      newItem.innerHTML = subject.value;
+      //입력정보 추가
+      let itemList = document.querySelector("#itemList");
+      itemList.insertBefore(newItem, itemList.childNodes[0]);
+      // 입력창 초기화
+      subject.value=""
+      // 삭제할 아이템 찾아서 삭제하기
+      for (let i = 0; i < items.length; i++) {
+        items[i].addEventListener("click", function(){
+          if(this,parent)
+        })
+        
+      }
+    }
   </script>
 </body>
 
