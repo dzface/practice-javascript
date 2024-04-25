@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      width: 800px;
+      height: 800px;
+      border: 1px solid;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .album-box {
+      width: 300px;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .album-image {
+      min-width: 300px;
+      min-height: 300px;
+      background-size: cover;
+    }
+
+    .album-text {
+      display: none;
+      height: 100px;
+    }
+
+    .album-box .album-image:nth-child(1) {
+      background-image: url(../image/itzy.jpeg);
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    button {
+      float: left;
+      border: 1px solid;
+      border-radius: 5%;
+      background-color: #fff;
+      margin: 230px 0 0 10px;
+    }
+
+    .open {}
+
+    .close {}
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="album-box">
+      <div class="album-image">
+        <button class="open">상세설명보기</button>
+      </div>
+      <div class="album-text">
+        <p>그룹 잇지</p>
+        <p>팀명 'ITZY'는 너희가 원하는 거 전부 있지? 있지! ~~</p>
+        <button class="close">상세설명닫기</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    let openInfo = document.getElementsByClassName("open");
+    let closeInfo = document.getElementsByClassName("close");
+    for (let i = 0; i < openInfo.length; i++) {
+      openInfo[i].addEventListener("click", () => {
+        document.getElementsByClassName("album-text")[i].style.display = "block";
+        document.getElementsByClassName("open")[i].style.display = "none";
+      });
+    }
+
+    for (let i = 0; i < closeInfo.length; i++) {
+      closeInfo[i].addEventListener("click", () => {
+        document.getElementsByClassName("album-text")[i].style.display = "none";
+        document.getElementsByClassName("open")[i].style.display = "block";
+      });
+    }
+  </script>
+
+</body>
+
+</html>

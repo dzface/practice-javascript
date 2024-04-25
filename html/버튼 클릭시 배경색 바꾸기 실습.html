@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container{
+      border: 1px solid;
+      display: flex;
+      flex-direction: column;
+      justify-items: center;
+      align-items: center;
+      margin: 0 auto;
+    }
+
+    .box {
+      width: 800px;
+      display: flex;
+      justify-content: center;
+      margin: 10px;
+    }
+    .box .window{
+      width: 500px;
+      height: 300px;
+      display: block;
+      border: 1px solid;
+      border-radius: 5%;
+    }
+    .box button{
+      width: 100px;
+      height: 40px;
+      color: white;
+      text-align: center;
+      margin: 0 10px;
+    }
+    .box button:nth-child(1){
+      background-color: green;
+    }
+    .box button:nth-child(2){
+      background-color: Orange;
+    }
+    .box button:nth-child(3){
+      background-color: purple;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box">
+      <button id="No1">Green</button>
+      <button id="No2">Orange</button>
+      <button id="No3">purple</button>
+    </div>
+    <div class="box">
+      <div class="window"></div>
+    </div>
+
+
+  </div>
+
+
+  <script>
+    let windows = document.getElementsByClassName("window");
+
+    let clrButton1 = document.getElementById("No1");
+    clrButton1.addEventListener("click", ()=> {
+      windows[0].style.backgroundColor = "green";
+    });
+  
+    let clrButton2 = document.getElementById("No2");
+      clrButton2.addEventListener("click", ()=> {
+      windows[0].style.backgroundColor = "orange";
+    });
+  
+  
+    let clrButton3 = document.getElementById("No3");
+      clrButton3.addEventListener("click", ()=> {
+      windows[0].style.backgroundColor = "purple";
+    });
+
+  </script>
+  
+</body>
+</html>
