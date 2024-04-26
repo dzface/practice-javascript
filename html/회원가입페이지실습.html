@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      width: 1000px;
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+    }
+
+    .box {
+      width: 200px;
+      border: 1px solid;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .inputLine div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      height: 20px;
+    }
+
+    .cation {
+      height: 10px;
+      font-size: 5px;
+    }
+
+    .check-Button {
+      width: 50px;
+      height: 20px;
+      justify-content: center;
+      align-items: center;
+      color: azure;
+      background-color: royalblue;
+    }
+
+    .check-Button::before {
+      content: "확인";
+    }
+
+    .inputBox {
+      width: 120px;
+      height: 20px;
+      border: 1px solid royalblue;
+      border-radius: 5%;
+      margin: 0 10px;
+    }
+
+    .regist-Button {
+      width: 200px;
+      height: 20px;
+      color: azure;
+      background-color: royalblue;
+      margin-left: 10px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="box">
+      <div>
+        <div class="inputLine">
+          <div>
+            <input type="text" class="inputBox" id="inputId" placeholder="아이디 입력"><button class="check-Button"></button>
+          </div>
+        </div>
+        <p class="cation"></p>
+      </div>
+      <div>
+        <div class="inputLine">
+          <div>
+            <input type="password" class="inputBox" id="inputPw" placeholder="비밀번호 입력"><button
+              class="check-Button"></button>
+          </div>
+        </div>
+        <p class="cation"></p>
+      </div>
+      <div>
+        <div class="inputLine">
+          <div>
+            <input type="email" class="inputBox" id="inputEmail" placeholder="이메일 입력">
+            <button class="check-Button"></button>
+          </div>
+        </div>
+        <p class="cation"></p>
+      </div>
+      <div>
+        <div class="inputLine">
+          <div>
+            <input type="text" class="inputBox" id="inputPhone" placeholder="전화번호 입력">
+            <button class="check-Button"></button>
+          </div>
+        </div>
+        <p class="cation"></p>
+      </div>
+      <div class="box">
+        <button class="regist-button" disabled="true">가입요청</button>
+      </div>
+      
+    </div>
+  </div>
+  <script>
+    // 아이디 입력란 체크 버튼과 동작 구현
+    let buttonCheck1 = document.querySelector('.box .check-Button:nth-of-type(1)');
+    let cationText1 = document.querySelector('.box .cation:nth-of-type(1)');
+    let inputId = document.getElementById("inputId");
+    const ID_RULE = /^[a-zA-Z0-9]{4,20}$/;
+    buttonCheck1.addEventListener('click', () => {
+      let inputIdValue = inputId.value;
+      if (ID_RULE.test(inputIdValue)) {
+        cationText1.innerText = "확인되었습니다.";
+      } else {
+        cationText1.innerText = "잘못 입력하였습니다.";
+      }
+    });
+    // 비밀번호 입력란 동작구현
+    //   ^: 패턴의 시작을 나타냅니다.
+    // [A-Z]: 대문자 알파벳을 나타냅니다.
+    // [a-zA-Z0-9]: 대소문자 알파벳과 숫자를 허용합니다.
+    // {3,15}: 대문자를 포함한 총 길이가 4에서 16 사이여야 함을 나타냅니다.
+    // $: 패턴의 끝을 나타냅니다.
+    let checkButton2 = document.querySelectorAll('.box .check-Button')[1];
+    let cationText2 = document.querySelectorAll('.box .cation')[1];
+    let inputPw = document.getElementById("inputPw");
+    const PW_RULE = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    checkButton2.addEventListener('click', () => {
+      let inputPwValue = inputPw.value;
+      if (PW_RULE.test(inputPwValue)) {
+        cationText2.innerText = "확인되었습니다.";
+      } else {
+        cationText2.innerText = "잘못 입력하였습니다.";
+      }
+    });
+
+    //비밀번호 입력란 동작구현
+    let checkButton3 = document.querySelectorAll('.box .check-Button')[2];
+    let cationText3 = document.querySelectorAll('.box .cation')[2];
+    let inputE = document.getElementById("inputEmail");
+    //       //이메일 정규식
+    //       ^: 패턴의 시작
+    // [a-zA-Z0-9._%+-]+: 이메일 주소의 로컬 파트로 사용될 수 있는 문자들로 이루어진 문자열. 하나 이상의 문자가 올 수 있음.
+    // @: '@' 문자
+    // [a-zA-Z0-9.-]+: 이메일 주소의 도메인 파트로 사용될 수 있는 문자들로 이루어진 문자열. 하나 이상의 문자가 올 수 있음.
+    // \.: '.' 문자
+    // [a-zA-Z]{2,}: 최소한 2개 이상의 알파벳으로 이루어진 최상위 도메인
+    // $: 패턴의 끝
+    const EMAIL_RULE = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    checkButton3.addEventListener('click', () => {
+      let inputEmailValue = inputE.value;
+      if (EMAIL_RULE.test(inputEmailValue)) {
+        cationText3.innerText = "확인되었습니다.";
+      } else {
+        cationText3.innerText = "잘못 입력하였습니다.";
+      }
+    });
+//핸드폰 입력란 동작구현
+    let checkButton4 = document.querySelectorAll('.box .check-Button')[3];
+    let cationText4 = document.querySelectorAll('.box .cation')[3];
+    let inputPhone = document.getElementById("inputPhone");
+    const Phone_RULE = /\d{2,3}-\d{3,4}-\d{4}/g;
+    checkButton4.addEventListener('click', () => {
+      let inputPhoneValue = inputPhone.value;
+      if (Phone_RULE.test(inputPhoneValue)) {
+        cationText4.innerText = "확인되었습니다.";
+      } else {
+        cationText4.innerText = "잘못 입력하였습니다.";
+      }
+    });
+const registButton = document.getElementsByClassName('regist-button');
+if (ID_RULE.test(inputIdValue) && PW_RULE.test(inputPwValue) && EMAIL_RULE.test(inputEmailValue) && Phone_RULE.test(inputPhoneValue)) {
+  registButton.style.disabled="false";
+}
+  </script>
+</body>
+
+</html>
